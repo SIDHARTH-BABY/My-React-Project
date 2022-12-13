@@ -71,6 +71,7 @@ router.get('/get-user-info-by-id', authMiddleware, async (req, res) => {
 
     try {
         const user = await User.findOne({ _id: req.body.userId })
+        console.log(user);
         if (!user) {
             return res
                 .status(200)
@@ -78,6 +79,7 @@ router.get('/get-user-info-by-id', authMiddleware, async (req, res) => {
         } else {
             res.status(200).send({
                 success: true, data: {
+                    _id :user._id, 
                     name: user.name,
                     email: user.email,
                     isAdmin: user.isAdmin,

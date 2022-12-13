@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Cover from "../../img/cover.jpg";
 import Profile from "../../img/profileImg.jpg";
 import "./ProfileCard.css";
 
 const ProfileCard = () => {
+  const {user} = useSelector((state)=>state.user)
   const ProfilePage = true;
   return (
     <div className="ProfileCard">
@@ -13,7 +15,7 @@ const ProfileCard = () => {
       </div>
 
       <div className="ProfileName">
-        <span>Daid Beckam</span>
+        <span>{user? user.name : ""}</span>
         <span>Sports</span>
       </div>
 
